@@ -1,0 +1,15 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2022-10-16
+  Changes:
+    - some log deactivated
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2022-10-12
+  Info:
+    - Created for Factorio 1.1
+    - Combination of Kux-Zooming (ZoomingReinvented) and Kux-RunningCheat
+  Locale:
+    - English
+  License:
+    - MIT

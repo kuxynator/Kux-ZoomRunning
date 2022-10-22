@@ -1,0 +1,15 @@
+{
+  "name": "Kux-ZoomRunning",
+  "version": "2.0.1",
+  "factorio_version": "1.1",
+  "title": "Kuxynator's Zoom-Running",
+  "author": "Kuxynator",
+  "description": "Running speed depends on zoom level. Zoom out to run faster, zoom in to run slower.",
+  "homepage": "https://fb.me/kuxynator.factorio",
+  "dependencies": [ 
+	"base >= 1.1.0",
+	"!Kux-Zooming",
+	"!Kux-Running",
+	"!Kux-RunningCheat"
+  ]
+}
