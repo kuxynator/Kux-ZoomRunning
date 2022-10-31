@@ -1,0 +1,14 @@
+Satisfactorio 1.1.11
+(seems to be eqal Vanilla levels)
+0.371
+...
+0.820
+0.906
+1.0	default
+1.104
+1.219
+1.346
+1.486
+1.641
+...
+3.281 max

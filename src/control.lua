@@ -169,7 +169,7 @@ end)
 
 script.on_event(ModPrefix.."_quick-zoom-in", function(event)
     local player = game.players[event.player_index]
-    local zoomLevel = modSettings.getMaxWorldZoomOut(player)
+    local zoomLevel = Settings.getMaxWorldZoomOut(player)
 
     if player.render_mode == defines.render_mode.chart_zoomed_in and not player.selected then
        player.zoom = zoomLevel
@@ -183,7 +183,7 @@ end)
 
 script.on_event(ModPrefix.."_quick-zoom-out", function(event)
     local player = game.players[event.player_index]
-    local zoom_level = modSettings.getQuickZoomOutZoomLevel(player)
+    local zoom_level = Settings.getQuickZoomOutZoomLevel(player)
 
     player.open_map({0, 0}, zoom_level)
 
@@ -271,4 +271,25 @@ script.on_event(defines.events.on_runtime_mod_setting_changed, function(event)
 	if event.player_index == nil then return end -- changed by a script
 	Settings.validateAndFix(game.players[event.player_index])
 	debug.onSettingsChanged()
+    Running.refreshAfterEvent(event)
 end)
+
+script.on_event(defines.events.on_player_armor_inventory_changed, function(event)
+	Running.refreshAfterEvent(event)
+end)
+
+-- no player, maybe slows performance if run on multiplayer
+script.on_nth_tick(60, function(event)
+    --log("on_nth_tick")
+    Running.refreshAfterEvent(event)
+end)
+
+--[[ slows performance
+script.on_event(defines.events.on_player_changed_position, function(event)
+	Running.refreshAfterEvent(event)
+end)
+]]--
+-- on_player_changed_surface
+-- on_player_placed_equipment ==> on_player_armor_inventory_changed
+-- on_player_removed_equipment ==> on_player_armor_inventory_changed
+-- on_runtime_mod_setting_changed

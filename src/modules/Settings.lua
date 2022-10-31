@@ -65,9 +65,9 @@ Settings = {
 
 	--[[ runtime-global ]] --
 
-	--getIsLogEnabled = function()
-	--	return settings.global[ModName.."-EnableLog"].value
-	--end,
+	getGlobalCheatMode= function()
+		return settings.global[ModName.."-GlobalCheatMode"].value
+	end,
 
 	--[[ runtime-per-user ]] --
 
@@ -109,6 +109,16 @@ Settings = {
 
 	getDisableRunningSpeedModifier = function(player)
 		return player.mod_settings[ModName.."-DisableRunningSpeedModifier"].value
+	end,
+
+	getAllowMaxZoomOutForSatisfactorio = function(player)
+		return player.mod_settings[ModName.."_AllowMaxZoomOutForSatisfactorio"].value
+	end,
+
+	getCheatMode = function(player)
+		if (this.getGlobalCheatMode()~=true) and (player.admin==false) then return false end
+		local value = player.mod_settings[ModName.."-CheatMode"].value==true
+		return value
 	end,
 
 	--zoomSpeedOffset = function(player)

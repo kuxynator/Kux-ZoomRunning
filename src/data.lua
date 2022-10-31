@@ -1,5 +1,6 @@
 ModName = "Kux-ZoomRunning"
 local prefix = "Kux-ZoomRunning"
+
 -- consuming: none|game-only (game-only: only script)
 data:extend {
     {

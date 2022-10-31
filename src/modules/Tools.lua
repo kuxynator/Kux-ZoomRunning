@@ -27,7 +27,7 @@ Tools.getMovementBonus = function(player)
 	local bonus = 0
 	for _, equipment in pairs(armor.grid.equipment) do
 		bonus = bonus + equipment.movement_bonus
-	end
+	end	
 	return bonus
 end
 
@@ -36,5 +36,5 @@ end
 Tools.getTileSpeedModifier = function (obj)
 	if obj.object_name == "LuaPlayer" then return obj.character.surface.get_tile(obj.position).prototype.walking_speed_modifier end
 	if obj.object_name == "LuaTile" then return obj.prototype.walking_speed_modifier end
-	error("Argument out of range. name:obj ",serpent.block(obj))
+	error("Argument out of range. name:obj ", serpent.block(obj))
 end

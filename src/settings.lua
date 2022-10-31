@@ -54,12 +54,19 @@ data:extend({
         default_value = false,
         order = "06"
     },
+    {
+        type = "bool-setting",
+        name = prefix.."_AllowMaxZoomOutForSatisfactorio",
+        setting_type = "runtime-per-user",
+        default_value = false,
+        order = "06"
+    },
 	{
         type = "bool-setting",
         name = prefix.."_debug",
         setting_type = "runtime-per-user",
         default_value = false,
-        order = "07"
+        order = "x00"
     }
 })
 
@@ -69,13 +76,25 @@ data:extend({
 		type = "bool-setting",
 		name = ModName.."-CharacterHover",
 		setting_type = "startup",
-		default_value = true
+		default_value = false
 	}
 })
 
+
+--[[ runtime-global ]]--
+data:extend({
+    {
+        type = "bool-setting",
+        name = ModName.."-GlobalCheatMode",
+        setting_type = "runtime-global",
+        default_value = false,
+        order = "a00"
+    },
+})
+
 --[[ runtime-per-user ]]--
-data:extend({      
-	{
+data:extend({
+    {
         type = "double-setting",
         name = ModName.."-UpsAdjustment",
         setting_type = "runtime-per-user",
@@ -108,10 +127,17 @@ data:extend({
         order = "c01"
 	},
     {
-    type = "bool-setting",
-    name = ModName.."-DisableRunningSpeedModifier",
-    setting_type = "runtime-per-user",
-    default_value = false,
-    order = "z00"
+        type = "bool-setting",
+        name = ModName.."-CheatMode",
+        setting_type = "runtime-per-user",
+        default_value = false,
+        order = "d00"
+    },
+    {
+        type = "bool-setting",
+        name = ModName.."-DisableRunningSpeedModifier",
+        setting_type = "runtime-per-user",
+        default_value = false,
+        order = "z00"
     },
 })

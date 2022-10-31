@@ -26,6 +26,8 @@ function module.calculateZoomedOutLevel(player)
 	local newZoomLevel = zoomLevel / zoomSensitivity
 
 	local maxZoomOutLevel = Settings.getMaxWorldZoomOut(player)
+	if(script.active_mods["Satisfactorio"] and not Settings.getAllowMaxZoomOutForSatisfactorio(player)) then maxZoomOutLevel = math.max(maxZoomOutLevel, 0.371) end
+
 	if newZoomLevel < maxZoomOutLevel then
 		return zoomLevel -- do not zoom
 	end

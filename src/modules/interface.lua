@@ -50,7 +50,7 @@ modules.interface = {
 		--@param   playerIndex The player index [integer]
 		--@return  The zoom factor [double]
 		getZoomFactor = function(playerIndex)
-			return playerMemory.getCurrentZoomLevel(game.players[playerIndex])
+			return PlayerMemory.getCurrentZoomLevel(game.players[playerIndex])
 		end,
 
 		--- Sets the zoom factor
