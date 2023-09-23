@@ -133,6 +133,16 @@ data:extend {
 }
 --- character  -------------------------------------------------------
 if settings.startup[ModName.."-CharacterHover"].value then
-	data.raw["character"]["character"].collision_box = {{0,0}, {0,0}}
-	--thx to DellAquila
+	data.raw["character"]["character"].collision_box = {{-0.1,-0.1}, {0.1,0.1}}
+
+	local mask = {"consider-tile-transitions"}
+	if settings.startup[ModName.."-CharacterHover-water-tiles"].value then
+		table.insert(mask, "water-tile")
+		table.insert(mask, "colliding-with-tiles-only")
+	end
+
+	-- ["character"] = {"player-layer", "train-layer", "consider-tile-transitions"},
+
+	-- "item-layer", "object-layer"
+	data.raw["character"]["character"].collision_mask = mask
 end
